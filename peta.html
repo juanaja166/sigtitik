@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>WebGIS</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
+    <style>
+      html,
+      body,
+      #map {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+
+    <script>
+      var map = L.map("map").setView([-7.9, 110.45], 10); // lat, long, zoom
+
+      var basemap0 = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+      });
+
+      var Esri_WorldImagery = L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}", {
+        attribution: "Cesar Fadil Kanz &copy; &mdash; 23611088 Satistika Universitas",
+      });
+
+      var OpenTopoMap = L.tileLayer("https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png", {
+        maxZoom: 17,
+        attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a>',
+      });
+
+      Esri_WorldImagery.addTo(map);
+
+      var baseMaps = {
+        "Open Street Map": basemap0,
+        "Open Topo Map": OpenTopoMap,
+        "Esri World Imagery": Esri_WorldImagery,
+      };
+
+      var overlayMaps = {};
+      var layerControl = L.control.layers(baseMaps, overlayMaps, { collapsed: false });
+      layerControl.addTo(map);
+
+      var TokoRoti1 = L.marker([-7.824779284011512, 110.49662590114072]);
+      TokoRoti1.bindPopup("anjanieed (roti dan kue ulang tahun)");
+      TokoRoti1.addTo(map);
+      TokoRoti1.openPopup();
+      TokoRoti1.bindTooltip("sumbertetes RT/RW 23/04, Patuk, Kec. Patuk, Kabupaten Gunung Kidul, Daerah Istimewa Yogyakarta 55862");
+
+      var TokoRoti2 = L.marker([-7.847928352314376, 110.4808207992554]);
+      TokoRoti2.bindPopup("LINTANG SARI CAKE & COOKIES KUE ULTAH");
+      TokoRoti2.addTo(map);
+      TokoRoti2.openPopup();
+      TokoRoti2.bindTooltip("Jl. Patuk-Pengkok, RT.15/RW.05, Salam, Kec. Patuk, Kabupaten Gunung Kidul, Daerah Istimewa Yogyakarta 55862");
+
+      var TokoRoti3 = L.marker([-7.928865952331943, 110.5508586412522]);
+      TokoRoti3.bindPopup("Toko Roti Adi Bagas cake and cookies");
+      TokoRoti3.addTo(map);
+      TokoRoti3.openPopup();
+      TokoRoti3.bindTooltip("jalan playen paliyan, sumberjo rt31/rw04, Sumber Rejo, Ngawu, Kec. Playen, Kabupaten Gunung Kidul, Daerah Istimewa Yogyakarta 55861");
+
+      var TokoRoti4 = L.marker([-7.926145618431481, 110.6051036365242]);
+      TokoRoti4.bindPopup("Toko Roti Ibu Basuki Cabang Wonosari");
+      TokoRoti4.addTo(map);
+      TokoRoti4.openPopup();
+      TokoRoti4.bindTooltip("3J73+WM8, Ngrebah II, Piyaman, Kec. Wonosari, Kabupaten Gunung Kidul, Daerah Istimewa Yogyakarta 55851");
+
+      var TokoRoti5 = L.marker([-7.937026846078993, 110.58450427123104]);
+      TokoRoti5.bindPopup("Dunia Bakery & Coffee");
+      TokoRoti5.addTo(map);
+      TokoRoti5.openPopup();
+      TokoRoti5.bindTooltip("3H2P+57H, Jalan Wonosari-Yogya, Wonosari, Siyono Wetan, Logandeng, Kec. Playen, Kabupaten Gunung Kidul, Daerah Istimewa Yogyakarta 55861");
+
+      var TokoRoti6 = L.marker([-7.957996404293171, 110.59482649900075]);
+      TokoRoti6.bindPopup("Mama Bakery Wonosari");
+      TokoRoti6.addTo(map);
+      TokoRoti6.openPopup();
+      TokoRoti6.bindTooltip("Jl. KH Agus Salim No.210, Kranon, Kepek, Kec. Wonosari, Kabupaten Gunung Kidul, Daerah Istimewa Yogyakarta 55813");
+
+      var TokoRoti7 = L.marker([-7.96234379215548, 110.59865418999185]);
+      TokoRoti7.bindPopup("Pandan Wangi Roti & Kue");
+      TokoRoti7.addTo(map);
+      TokoRoti7.openPopup();
+      TokoRoti7.bindTooltip("Jl. KH Agus Salim No.6, Kepek I, Kepek, Kec. Wonosari, Kabupaten Gunung Kidul, Daerah Istimewa Yogyakarta 55813");
+
+      var TokoRoti8 = L.marker([-7.959685894782589, 110.5943845684785]);
+      TokoRoti8.bindPopup("Roti Wonosari");
+      TokoRoti8.addTo(map);
+      TokoRoti8.openPopup();
+      TokoRoti8.bindTooltip("Jl. Tentara Pelajar No.96, Kepek I, Kepek, Kec. Wonosari, Kabupaten Gunung Kidul, Daerah Istimewa Yogyakarta 55813");
+
+      var TokoRoti9 = L.marker([-7.961981352620003, 110.59859319539882]);
+      TokoRoti9.bindPopup("ALIF’s Bakery n Cookies Cabang Wonosari");
+      TokoRoti9.addTo(map);
+      TokoRoti9.openPopup();
+      TokoRoti9.bindTooltip("Jl. KH Agus Salim No.14, Kepek I, Kepek, Kec. Wonosari, Kabupaten Gunung Kidul, Daerah Istimewa Yogyakarta 55813");
+
+      var TokoRoti10 = L.marker([-7.964941266107834, 110.59981308725978]);
+      TokoRoti10.bindPopup("Almacake Wonosari");
+      TokoRoti10.addTo(map);
+      TokoRoti10.openPopup();
+      TokoRoti10.bindTooltip("Trimulyo I, Kepek, Kec. Wonosari, Kabupaten Gunung Kidul, Daerah Istimewa Yogyakarta 55813");
+    </script>
+  </body>
+</html>
